@@ -2,3 +2,4 @@ gradio
 pandas
 langchain==0.0.148
 numpy
+aws-cdk-lib
