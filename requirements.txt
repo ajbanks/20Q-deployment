@@ -1,8 +1,8 @@
 gradio
 pandas
-langchain==0.0.148
 numpy
 aws-cdk-lib
 awscli
 python-dotenv
 requests
+constructs>=10.0.0
