@@ -5,3 +5,4 @@ numpy
 aws-cdk-lib
 awscli
 python-dotenv
+requests
