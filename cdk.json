@@ -1,7 +1,7 @@
 
 
 {
-  "app": "python3 cdk.py",
+  "app": "python cdk.py",
   "context": {
     "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
     "aws-cdk:enableDiffNoFail": "true",

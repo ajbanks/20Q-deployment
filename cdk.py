@@ -10,6 +10,11 @@ from aws_cdk import (
 )
 from aws_cdk.aws_lambda import DockerImageFunction, DockerImageCode, Architecture, FunctionUrlAuthType
 from aws_cdk.aws_logs import RetentionDays
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 # Environment
 # CDK_DEFAULT_ACCOUNT and CDK_DEFAULT_REGION are set based on the
@@ -30,13 +35,15 @@ class GradioLambda(Stack):
         lambda_fn = DockerImageFunction(
             self,
             "AssetFunction",
-            code=DockerImageCode.from_image_asset(str(Path.cwd().joinpath("containers")), file="Dockerfile.lambda"),
+            code=DockerImageCode.from_image_asset(str(Path.cwd())),
             architecture=architecture,
             memory_size=8192,
             timeout=Duration.minutes(1),
         )
+
         # add HTTPS url
         fn_url = lambda_fn.add_function_url(auth_type=FunctionUrlAuthType.NONE)
+        print(fn_url.to_string())
         CfnOutput(self, "functionUrl", value=fn_url.url)
 
         ##############################
