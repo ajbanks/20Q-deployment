@@ -43,24 +43,7 @@ class GradioLambda(Stack):
 
         # add HTTPS url
         fn_url = lambda_fn.add_function_url(auth_type=FunctionUrlAuthType.NONE)
-        print(fn_url.to_string())
         CfnOutput(self, "functionUrl", value=fn_url.url)
-
-        ##############################
-        #         API Gateway        #
-        ##############################
-
-        # api = _apigw.LambdaRestApi(
-        #     self,
-        #     "hf_api_gw",
-        #     proxy=True,
-        #     handler=lambda_fn,
-        #     default_cors_preflight_options=_apigw.CorsOptions(
-        #         allow_origins=_apigw.Cors.ALL_ORIGINS, allow_methods=_apigw.Cors.ALL_METHODS
-        #     ),
-        # )
-        # route = api.root.add_resource("signup")
-        # route.add_method("POST")  # POST /signup
 
 
 app = App()

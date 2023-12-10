@@ -5,19 +5,27 @@ import random
 twenty_question_game = Twenty_Questions_Game()
 
 def twenty_questions(message, history):
-    """list of two-element lists of the form [[user_message, bot_message"""
-    chat_message = twenty_question_game.play_twenty_q(message, history)
-    return chat_message
+    """
+    function that plays the 20q game. Two parameters
+
+    parameters:
+        Message: the last user message
+        gradio_history:  list of two-element lists of the form [[user_message, bot_message]]
+
+    returns chat_message:str
+    """
+    bot_message = twenty_question_game.play_twenty_q(message, history)
+    history.append((message, bot_message))
+    return "", history
 
 
-demo = gr.ChatInterface(
-    fn=twenty_questions,
-    description="Play 20Q with our AI by answering it's questions!",
-    title="20 questions game",
-    textbox=gr.Textbox(placeholder="Is it an animal?")
-)
+# create chatbot using gradio
+with gr.Blocks() as demo:
+    chatbot = gr.Chatbot(value=[["", "Let's play 20 questions. I'll start! Is it an animal?"]])
+    msg = gr.Textbox()
+    clear = gr.ClearButton([msg, chatbot])
+
+    msg.submit(twenty_questions, [msg, chatbot], [msg, chatbot], queue=False)
 
 demo.launch(
     server_port=8080)
-#     # server_name="0.0.0.0"
-# )
