@@ -13,9 +13,6 @@ from aws_cdk.aws_logs import RetentionDays
 from os.path import join, dirname
 from dotenv import load_dotenv
 
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
-
 # Environment
 # CDK_DEFAULT_ACCOUNT and CDK_DEFAULT_REGION are set based on the
 # AWS profile specified using the --profile option.

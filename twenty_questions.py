@@ -9,7 +9,7 @@ from typing import AnyStr, List, Dict, Any, Union, Callable, Optional
 
 # LLM API details
 LLM_URL = 'https://candidate-llm.extraction.artificialos.com/v1/chat/completions'
-LLM_API_KEY = ''
+LLM_API_KEY = 'QKCGstPKkH7TGd712hpPi8C9Ghfsd6mG7Xq3ffh3'
 
 
 
