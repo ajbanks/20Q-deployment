@@ -5,7 +5,7 @@ import os
 import requests
 import json
 from LLM_prompts import EMOTIONAL_PROMPT, PROMPT_INJECTION_PROTECTION
-from typing import AnyStr, List, Dict, Any, Union, Callable, Optional
+from typing import List, Dict, Any, Union, Callable, Optional
 
 # LLM API details
 LLM_URL = 'https://candidate-llm.extraction.artificialos.com/v1/chat/completions'
@@ -20,7 +20,7 @@ class Twenty_Questions_Game:
         self.ai_win_response = "Haha. I guessed correctly within 20 questions. Looks like I won that one :D. Let's play again. Is it an animal?"
         self.ai_loss_respose = "Ohh no! I'm out of questions! Looks like you won this time. Let's play again. Is it an animal?"
 
-    def send_llm_message(self, message, temperature=0.7):
+    def send_llm_message(self, message: str, temperature=0.7):
         """Sends a message to artificials's gpt-4 using chat completion
 
         parameters:
@@ -44,7 +44,7 @@ class Twenty_Questions_Game:
 
         return chat_response
 
-    def convert_gradio_history_to_text(self, message, gradio_history):
+    def convert_gradio_history_to_text(self, message: str, gradio_history: List  ):
         """
         converts the gradio chat history into one string
         parameters:
@@ -60,7 +60,7 @@ class Twenty_Questions_Game:
         # text_history_since_new_game = text_history.split("GAME OVER.")[-1]
         return text_history
 
-    def ask_question(self, history:AnyStr):
+    def ask_question(self, history: str):
         """
         uses an llm to ask the next question in the 20q game
         parameters:
@@ -79,7 +79,7 @@ class Twenty_Questions_Game:
         return question
 
 
-    def is_last_message_unrelated(self, chat_history:AnyStr):
+    def is_last_message_unrelated(self, chat_history:str):
         """This function checks if the players message is related to 20 questions or not
         parameters:
             chat_history: str
@@ -102,7 +102,7 @@ class Twenty_Questions_Game:
             return False
 
 
-    def did_ai_win(self, chat_history: AnyStr):
+    def did_ai_win(self, chat_history: str):
         """This function checks if the AI has guessed the concept correctly or not
         parameters:
             chat_history: str
@@ -123,7 +123,7 @@ class Twenty_Questions_Game:
         else:
             return False
 
-    def play_twenty_q(self, message:AnyStr, gradio_chat_history:List):
+    def play_twenty_q(self, message:str, gradio_chat_history:List):
         """This function is the chatbot pipeline. It analyses a palyers response and chooses the appropriate next message
         parameters:
             Message: the last user message
