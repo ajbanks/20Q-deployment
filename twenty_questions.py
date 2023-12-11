@@ -1,11 +1,8 @@
-import numpy as np
-import pandas as pd
 import time
-import os
 import requests
 import json
 from LLM_prompts import EMOTIONAL_PROMPT, PROMPT_INJECTION_PROTECTION
-from typing import List, Dict, Any, Union, Callable, Optional
+from typing import List
 
 # LLM API details
 LLM_URL = 'https://candidate-llm.extraction.artificialos.com/v1/chat/completions'
