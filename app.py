@@ -1,6 +1,5 @@
 import gradio as gr
 from twenty_questions import Twenty_Questions_Game
-import random
 
 twenty_question_game = Twenty_Questions_Game()
 
