@@ -54,7 +54,7 @@ class Twenty_Questions_Game:
         for user_message, ai_message in gradio_history:
             text_history = text_history + "\n User: " + user_message + "\n You: " + ai_message
         text_history = text_history + "\n User: " + message
-        # text_history_since_new_game = text_history.split("GAME OVER.")[-1]
+        
         return text_history
 
     def ask_question(self, history: str):
