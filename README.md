@@ -2,6 +2,8 @@
 
 # Playing 20q against an LLM 
 
+This is a quick project where i hae created a 20 questions game using an LLM and Gradio.
+
 The game is 20 questions - whereby you, the user, think of something (i.e. a dog, a coffee, a display, a football) and the AI has to guess what you are thinking of. 
 The AI can ask up to 20 yes/no questions to find out what you are thinking of. You must answer yes or no truthfully. 
  
