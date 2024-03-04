@@ -5,12 +5,12 @@ from LLM_prompts import EMOTIONAL_PROMPT, PROMPT_INJECTION_PROTECTION
 from typing import List
 
 # LLM API details
-LLM_URL = 'https://candidate-llm.extraction.artificialos.com/v1/chat/completions'
+LLM_URL = ''
 LLM_API_KEY = ''
 
 
 
-class Twenty_Questions_Game:
+class TwentyQuestionsGame:
 
     def __init__(self):
         self.question_count = 0
