@@ -1,7 +1,7 @@
 import gradio as gr
-from twenty_questions import Twenty_Questions_Game
+from twenty_questions import TwentyQuestionsGame
 
-twenty_question_game = Twenty_Questions_Game()
+twenty_question_game = TwentyQuestionsGame()
 
 def twenty_questions(message, history):
     """
