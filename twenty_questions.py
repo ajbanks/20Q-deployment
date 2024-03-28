@@ -18,7 +18,7 @@ class TwentyQuestionsGame:
         self.ai_loss_respose = "Ohh no! I'm out of questions! Looks like you won this time. Let's play again. Is it an animal?"
 
     def send_llm_message(self, message: str, temperature=0.7):
-        """Sends a message to artificials's gpt-4 using chat completion
+        """Sends a message to gpt-4 using chat completion
 
         parameters:
             Message: the prompt that will be sent to our LLM
